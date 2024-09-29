@@ -101,9 +101,3 @@ def go(image_url):
     similarities=[[img[0],img[1]] for img in res]
     print(similarities)
     return similarities
-
-# %%
-go('C:/Users/sami/Desktop/projects/ai-commerce/dataset/images/0d24634d-4daa-41bc-8acf-61b8382e0419.jpg')
-
-
-
