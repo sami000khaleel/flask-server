@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from similarities import go 
 import os
 from dotenv import load_dotenv
-from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
+# from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
 
 load_dotenv()
 
@@ -15,17 +15,16 @@ def save_uploaded_file(file):
     return file_path
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = os.getenv('SERVER_TOKEN_SECRET')
-jwt = JWTManager(app)
+# app.config['JWT_SECRET_KEY'] = os.getenv('SERVER_TOKEN_SECRET')
+# jwt = JWTManager(app)
 @app.route('/', methods=['GET'])
 def print_hello():
-    return jsonify({'message':'helllo'}), 200
+     return jsonify({'message':"hello"})
 
 @app.route('/api/models/get-similarities', methods=['POST'])
-@jwt_required()  # التأكد من وجود رمز مميز صالح
+# @jwt_required()  # التأكد من وجود رمز مميز صالح
 def get_similarities():
     try:
-        print('has started psot')
         if 'file' not in request.files:
             return jsonify({'error': 'no file field was sent in the request'}), 400
 
